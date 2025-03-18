@@ -11,6 +11,11 @@
             <a href="{% url 'locations:delete' location.pk %}" class="bg-red-600 text-white px-6 py-3 rounded-lg hover:bg-red-700">
                 Delete
             </a>
+
+                <a href="{% url 'locations:list' %}" class="bg-gray-600 text-white px-6 py-3 rounded-lg hover:bg-gray-700">
+                    Back to Locations
+                </a>
+        
         </div>
     </div>
 
@@ -35,10 +40,6 @@
         </div>
     </div>
 
-    <div class="mt-8">
-        <a href="{% url 'locations:list' %}" class="bg-gray-600 text-white px-6 py-3 rounded-lg hover:bg-gray-700">
-            Back to Locations
-        </a>
-    </div>
+
 </div>
 {% endblock %}

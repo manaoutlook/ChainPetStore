@@ -9,15 +9,10 @@
     <form method="post" class="bg-white shadow rounded-lg p-6 relative z-10">
         {% csrf_token %}
         
-        <div class="space-y-4">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div>
                 <label class="block text-sm font-medium text-gray-700">Name</label>
                 {{ form.name }}
-            </div>
-            
-            <div>
-                <label class="block text-sm font-medium text-gray-700">Description</label>
-                {{ form.description }}
             </div>
             
             <div>
@@ -29,9 +24,15 @@
                 <label class="block text-sm font-medium text-gray-700">Total Stock</label>
                 {{ form.total_stock }}
             </div>
+            
             <div>
                 <label class="block text-sm font-medium text-gray-700">Category</label>
                 {{ form.category }}
+            </div>
+            
+            <div class="md:col-span-2">
+                <label class="block text-sm font-medium text-gray-700">Description</label>
+                {{ form.description }}
             </div>
         </div>
         

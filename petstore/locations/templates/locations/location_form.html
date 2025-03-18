@@ -9,7 +9,7 @@
     <form method="post" class="bg-white shadow rounded-lg p-6">
         {% csrf_token %}
         
-        <div class="space-y-4">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div>
                 <label class="block text-sm font-medium text-gray-700">Name</label>
                 {{ form.name }}
@@ -20,16 +20,14 @@
                 {{ form.address }}
             </div>
             
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                <div>
-                    <label class="block text-sm font-medium text-gray-700">City</label>
-                    {{ form.city }}
-                </div>
-                
-                <div>
-                    <label class="block text-sm font-medium text-gray-700">State</label>
-                    {{ form.state }}
-                </div>
+            <div>
+                <label class="block text-sm font-medium text-gray-700">City</label>
+                {{ form.city }}
+            </div>
+            
+            <div>
+                <label class="block text-sm font-medium text-gray-700">State</label>
+                {{ form.state }}
             </div>
             
             <div>
