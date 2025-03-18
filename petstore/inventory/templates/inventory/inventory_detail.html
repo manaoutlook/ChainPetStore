@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container mx-auto px-4 py-8">
+    <h1 class="text-2xl font-bold mb-4">Inventory Details</h1>
+    
+    <div class="bg-white shadow rounded-lg p-6">
+        <div class="grid grid-cols-2 gap-4 mb-4">
+            <div>
+                <h2 class="text-lg font-semibold">Product</h2>
+                <p>{{ inventory.product.name }}</p>
+            </div>
+            <div>
+                <h2 class="text-lg font-semibold">Location</h2>
+                <p>{{ inventory.location.name }}</p>
+            </div>
+            <div>
+                <h2 class="text-lg font-semibold">Quantity</h2>
+                <p>{{ inventory.quantity }}</p>
+            </div>
+        </div>
+
+        <div class="mt-6 flex space-x-4">
+            <a href="{% url 'inventory:inventory-update' inventory.pk %}" 
+               class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+                Edit
+            </a>
+            <a href="{% url 'inventory:inventory-list' %}" 
+               class="bg-gray-500 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded">
+                Back to List
+            </a>
+        </div>
+    </div>
+</div>
+{% endblock %}

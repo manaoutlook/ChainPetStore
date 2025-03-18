@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container mx-auto px-4 py-8">
+    <h1 class="text-3xl font-bold mb-8">Delete Location</h1>
+    
+    <div class="bg-white shadow rounded-lg p-6">
+        <p class="text-lg mb-4">Are you sure you want to delete "{{ location.name }}"?</p>
+        <p class="text-gray-600 mb-8">This action cannot be undone.</p>
+        
+        <form method="post">
+            {% csrf_token %}
+            <div class="flex space-x-4">
+                <button type="submit" class="bg-red-600 text-white px-6 py-3 rounded-lg hover:bg-red-700">
+                    Yes, Delete
+                </button>
+                <a href="{% url 'locations:detail' location.pk %}" class="bg-gray-600 text-white px-6 py-3 rounded-lg hover:bg-gray-700">
+                    Cancel
+                </a>
+            </div>
+        </form>
+    </div>
+</div>
+{% endblock %}

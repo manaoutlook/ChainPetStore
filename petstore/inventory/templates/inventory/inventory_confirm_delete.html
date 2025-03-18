@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container mx-auto px-4 py-8">
+    <h1 class="text-2xl font-bold mb-4">Delete Inventory</h1>
+    
+    <div class="bg-white shadow-md rounded-lg p-6">
+        <p class="mb-4">Are you sure you want to delete this inventory record?</p>
+        <p class="mb-4">
+            <strong>Product:</strong> {{ object.product.name }}<br>
+            <strong>Location:</strong> {{ object.location.name }}<br>
+            <strong>Quantity:</strong> {{ object.quantity }}
+        </p>
+        
+        <form method="post">
+            {% csrf_token %}
+            <button type="submit" class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded">
+                Yes, delete
+            </button>
+            <a href="{% url 'inventory:inventory-list' %}" class="ml-2 bg-gray-500 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded">
+                Cancel
+            </a>
+        </form>
+    </div>
+</div>
+{% endblock %}
