@@ -16,10 +16,12 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+from inventory.views import InventoryDashboardView  # Import the dashboard view
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('products/', include('products.urls', namespace='products')),
     path('locations/', include('locations.urls', namespace='locations')),
     path('inventory/', include('inventory.urls', namespace='inventory')),
+    path('', InventoryDashboardView.as_view(), name='dashboard'),
 ]
