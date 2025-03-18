@@ -26,9 +26,9 @@
                     <td class="px-6 py-4">${{ product.price }}</td>
                     <td class="px-6 py-4">{{ product.total_stock }}</td>
                     <td class="px-6 py-4 space-x-2">
-                        <a href="{% url 'products:product_detail' product.id %}" class="bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700">View</a>
-                        <a href="{% url 'products:product_update' product.id %}" class="bg-yellow-500 text-white px-6 py-2 rounded-lg hover:bg-yellow-600">Edit</a>
-                        <a href="{% url 'products:product_delete' product.id %}" class="bg-red-600 text-white px-6 py-2 rounded-lg hover:bg-red-700">Delete</a>
+                        <a href="{% url 'products:product_detail' product.id %}" class="bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700">View</a>
+                        <a href="{% url 'products:product_update' product.id %}" class="bg-yellow-500 text-white px-6 py-3 rounded-lg hover:bg-yellow-600">Edit</a>
+                        <a href="{% url 'products:product_delete' product.id %}" class="bg-red-600 text-white px-6 py-3 rounded-lg hover:bg-red-700">Delete</a>
                     </td>
                 </tr>
                 {% endfor %}
