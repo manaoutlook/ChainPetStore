@@ -30,9 +30,9 @@
                     <td class="px-6 py-4">{{ location.state }}</td>
                     <td class="px-6 py-4">{{ location.zip_code }}</td>
                     <td class="px-6 py-4 space-x-2">
-                        <a href="{% url 'locations:detail' location.pk %}" class="text-primary">View</a>
-                        <a href="{% url 'locations:update' location.pk %}" class="text-warning">Edit</a>
-                        <a href="{% url 'locations:delete' location.pk %}" class="text-danger">Delete</a>
+                        <a href="{% url 'locations:detail' location.pk %}" class="bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700">View</a>
+                        <a href="{% url 'locations:update' location.pk %}" class="bg-yellow-500 text-white px-6 py-2 rounded-lg hover:bg-yellow-600">Edit</a>
+                        <a href="{% url 'locations:delete' location.pk %}" class="bg-red-600 text-white px-6 py-2 rounded-lg hover:bg-red-700">Delete</a>
                     </td>
                 </tr>
                 {% empty %}
