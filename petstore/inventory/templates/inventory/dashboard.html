@@ -4,11 +4,92 @@
 <div class="container">
     <h1>{{ title }}</h1>
     
+    <!-- Key Metrics Cards -->
+    <div class="row mb-4">
+        <div class="col-md-4">
+            <div class="card bg-primary mb-3">
+                <div class="card-body text-dark">
+                    <h5 class="card-title">Total Products</h5>
+                    <p class="card-text display-4">{{ total_products }}</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card bg-success mb-3">
+                <div class="card-body text-dark">
+                    <h5 class="card-title">Total Categories</h5>
+                    <p class="card-text display-4">{{ total_categories }}</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card bg-info mb-3">
+                <div class="card-body text-dark">
+                    <h5 class="card-title">Total Locations</h5>
+                    <p class="card-text display-4">{{ total_locations }}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Products by Category -->
+    <div class="row mb-4">
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Products by Category</h5>
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th>Category</th>
+                                <th class="text-end">Product Count</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for item in products_by_category %}
+                            <tr>
+                                <td>{{ item.category__name }}</td>
+                                <td class="text-end">{{ item.count }}</td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <!-- Products by Location -->
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Products by Location</h5>
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th>Location</th>
+                                <th class="text-end">Product Count</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for item in products_by_location %}
+                            <tr>
+                                <td>{{ item.location__name }}</td>
+                                <td class="text-end">{{ item.product_count }}</td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Inventory Summary -->
     <div class="row mb-4">
         <div class="col-md-12">
             <div class="card">
                 <div class="card-body">
-                    <h5 class="card-title">Stock Summary</h5>
+                    <h5 class="card-title">Inventory Summary</h5>
                     <table class="table table-striped">
                         <thead>
                             <tr>
@@ -17,7 +98,7 @@
                             </tr>
                         </thead>
                         <tbody>
-                            {% for item in stock_summary %}
+                            {% for item in inventory_summary %}
                             <tr>
                                 <td>{{ item.product__name }}</td>
                                 <td class="text-end">{{ item.total_quantity }}</td>
@@ -30,29 +111,26 @@
         </div>
     </div>
 
+    <!-- Location Distribution -->
     <div class="row">
         <div class="col-md-12">
             <div class="card">
                 <div class="card-body">
-                    <h5 class="card-title">Recent Inventory Movements</h5>
+                    <h5 class="card-title">Inventory by Location</h5>
                     <table class="table table-striped">
                         <thead>
                             <tr>
-                                <th>Date</th>
+                                <th>Location</th>
                                 <th>Product</th>
-                                <th>From</th>
-                                <th>To</th>
                                 <th class="text-end">Quantity</th>
                             </tr>
                         </thead>
                         <tbody>
-                            {% for movement in recent_movements %}
+                            {% for item in location_distribution %}
                             <tr>
-                                <td>{{ movement.movement_date|date:"Y-m-d H:i" }}</td>
-                                <td>{{ movement.product.name }}</td>
-                                <td>{{ movement.from_location.name }}</td>
-                                <td>{{ movement.to_location.name }}</td>
-                                <td class="text-end">{{ movement.quantity }}</td>
+                                <td>{{ item.location__name }}</td>
+                                <td>{{ item.product__name }}</td>
+                                <td class="text-end">{{ item.total_quantity }}</td>
                             </tr>
                             {% endfor %}
                         </tbody>
